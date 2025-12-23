@@ -153,30 +153,66 @@ sania.cancel()
 neha.submit()
 
 
-// ___________ Iteration Functions:
 function iteratorfunc(val) {
   let nextIndex = 0;
+
   return {
     next() {
-      if (nextIndex < arr.length) {
+      if (nextIndex < val.length) {
         return {
           value: val[nextIndex++],
           done: false,
         };
       } else {
         return {
-          value: val[nextIndex++],
+          value: undefined,
           done: true,
         };
       }
     },
   };
 }
+
 let arr = [1, 2, 3, 4, 5];
+let str = "Sania";
+
 let iterate = iteratorfunc(arr);
-console.log(iterate.next().value);
-console.log(iterate.next());
-iterate.next();
-console.log(iterate.next());
-console.log(iterate.next());
-console.log(iterate.next());
+let iterate1 = iteratorfunc(str);
+
+console.log(iterate.next().value); // 1
+console.log(iterate.next()); // { value: 2, done: false }
+iterate.next(); // skips 3
+
+console.log(iterate1.next().value); // "S"
+
+console.log(iterate.next()); // { value: 4, done: false }
+console.log(iterate.next()); // { value: 5, done: false }
+console.log(iterate.next()); // { value: undefined, done: true }
+
+// ___________ Iteration Objects:
+let iter = {
+  Counter: 0,
+  next() {
+    return {
+      value: this.Counter++,
+      done: this.Counter >= 10,
+    };
+  },
+};
+
+let next = iter.next();
+while (!next.done) {
+  console.log(next.value);
+  next = iter.next();
+}
+
+// ___________ Generated Iterator by ES-6:
+let numbers = [100, 200, 300, 400, 500];
+let itor = numbers[Symbol.iterator]();
+console.log(itor.next());
+console.log(itor.next());
+console.log(itor.next());
+console.log(itor.next());
+console.log(itor.next());
+console.log(itor.next());
+console.log(itor.next());
