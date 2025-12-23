@@ -153,6 +153,8 @@ sania.cancel()
 neha.submit()
 
 
+// ___________ Iteration Functions:
+
 function iteratorfunc(val) {
   let nextIndex = 0;
 
@@ -189,6 +191,7 @@ console.log(iterate.next()); // { value: 4, done: false }
 console.log(iterate.next()); // { value: 5, done: false }
 console.log(iterate.next()); // { value: undefined, done: true }
 
+
 // ___________ Iteration Objects:
 let iter = {
   Counter: 0,
@@ -210,9 +213,23 @@ while (!next.done) {
 let numbers = [100, 200, 300, 400, 500];
 let itor = numbers[Symbol.iterator]();
 console.log(itor.next());
+itor.next();
+itor.next();
+itor.next();
 console.log(itor.next());
 console.log(itor.next());
-console.log(itor.next());
-console.log(itor.next());
-console.log(itor.next());
-console.log(itor.next());
+
+
+// ___________ Generators(function`s control):
+function *GeneratorFunc(){  //* → Generator function banata hai
+    console.log(1);
+    console.log(2);
+    yield "yield 1"  //yield → execution ko pause karta hai aur value return karta hai
+    console.log(3);
+    yield "yield 2"
+    console.log(4);
+}
+let g = GeneratorFunc()
+console.log(g.next());  //next() → resume karta hai execution
+console.log("Hello");  //We can randomly doing code inside functions
+console.log(g.next());
