@@ -151,3 +151,32 @@ console.log(sania);
 sania.cancel()
 // neha.fill("Neha", 8)
 neha.submit()
+
+
+// ___________ Iteration Functions:
+function iteratorfunc(val) {
+  let nextIndex = 0;
+  return {
+    next() {
+      if (nextIndex < arr.length) {
+        return {
+          value: val[nextIndex++],
+          done: false,
+        };
+      } else {
+        return {
+          value: val[nextIndex++],
+          done: true,
+        };
+      }
+    },
+  };
+}
+let arr = [1, 2, 3, 4, 5];
+let iterate = iteratorfunc(arr);
+console.log(iterate.next().value);
+console.log(iterate.next());
+iterate.next();
+console.log(iterate.next());
+console.log(iterate.next());
+console.log(iterate.next());
