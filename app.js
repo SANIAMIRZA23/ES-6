@@ -233,3 +233,34 @@ let g = GeneratorFunc()
 console.log(g.next());  //next() → resume karta hai execution
 console.log("Hello");  //We can randomly doing code inside functions
 console.log(g.next());
+
+
+// ___________ Filter Method:
+let num = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+let filterArr = num.filter((num) => num > 4);
+console.log(filterArr);
+
+// __________ Reduce Method:
+let numbers = [1, 2, 3, 4, 5];
+
+let sum = numbers.reduce((total, currentElement) => {
+  return total + currentElement;
+}, 0);
+
+
+// total = 0 default value
+// currentElement = 1 => total = 1
+
+// total = 1
+// currentElement = 2 => total = 3
+
+// total = 3
+// currentElement = 3 => total = 6
+
+// total = 6
+// currentElement = 4 => total = 10
+
+// total = 10
+// currentElement = 5 => total = 15
+
+console.log(sum); // Output: 15
