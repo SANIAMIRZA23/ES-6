@@ -251,6 +251,25 @@ let sum = numbers.reduce((total, currentElement) => {
 // total = 0 default value
 // currentElement = 1 => total = 1
 
+let userDetail = {
+    name: "Sania",
+    course: "WMA"
+}
+let userDetail2 = {
+    name: "Sania Mirza",
+    timings: "2-4"
+}
+
+function printDetails(city,country) {
+    console.log(this.name,city,country);
+}
+
+printDetails.call(userDetail,"Karachi","Pakistan")
+printDetails.call(userDetail2)
+
+printDetails.apply(userDetail,["Karachi","Pakistan"]) // objName and Array maangta hai.
+let bindFunc = printDetails.bind(userDetail,"Karachi","Pakistan")
+bindFunc()
 // total = 1
 // currentElement = 2 => total = 3
 
